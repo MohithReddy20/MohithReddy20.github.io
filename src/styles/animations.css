@@ -1,0 +1,5 @@
+/* Visible by default; only animate when the browser supports and enables the observer. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-ready { opacity:0; transform:translateY(18px); transition:opacity .65s ease,transform .65s ease; }
+  .reveal-ready.visible { opacity:1; transform:none; }
+}

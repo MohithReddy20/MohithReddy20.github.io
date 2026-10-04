@@ -1,0 +1,14 @@
+---
+interface Project { slug: string; title: string; category: string; summary: string; technologies: string[]; highlights: string[]; demo?: string }
+interface Props { project: Project; index: number }
+const { project, index } = Astro.props;
+---
+<article class="project-card reveal">
+  <span class="project-idx">{String(index + 1).padStart(2, '0')} / {project.category}</span>
+  <h3 class="project-title"><a href={`/projects/${project.slug}/`}>{project.title}<span aria-hidden="true"> ↗</span></a></h3>
+  <p class="project-desc">{project.summary}</p>
+  {project.demo && <a href={project.demo} class="project-demo" target="_blank" rel="noopener noreferrer">● Live demo ↗</a>}
+  <div class="project-tags" aria-label="Technologies">{project.technologies.map(technology => <span class="tag">{technology}</span>)}</div>
+  <ul class="project-highlights">{project.highlights.map(highlight => <li>{highlight}</li>)}</ul>
+  <a class="project-more" href={`/projects/${project.slug}/`} aria-label={`Read ${project.title} case study`}>Explore case study <span aria-hidden="true">↗</span></a>
+</article>

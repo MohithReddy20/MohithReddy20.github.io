@@ -1,0 +1,12 @@
+---
+import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+import { projects } from '../../data/projects';
+const project = projects[2]; const next = projects[0];
+---
+<CaseStudyLayout project={project} next={next}>
+  <Fragment slot="problem"><p>At DRDL, software requirement documents needed to become reviewable test cases in an air-gapped environment. The workflow had to work across more than 200 SRS documents without cloud access or external calls.</p></Fragment>
+  <Fragment slot="approach"><p>Python coordinates a local Ollama-based workflow that processes documents into test cases. The system is designed around sequential execution, matching the available memory constraints and keeping the working environment offline.</p></Fragment>
+  <Fragment slot="decisions"><p>Offline operation was a core engineering constraint rather than a deployment afterthought. Local models and sequential processing kept the workflow compatible with the environment; generated material was reviewed with senior scientists.</p></Fragment>
+  <Fragment slot="results"><p>The project reported a 60% reduction in manual verification effort across the workflow. Review with senior scientists kept the generated test cases connected to the practical needs of the documents.</p></Fragment>
+  <Fragment slot="limits"><p>This is a high-level description of an offline document workflow; restricted implementation details are intentionally omitted. The 60% reduction is project context, not an organizational benchmark, and this work does not imply organizational endorsement.</p></Fragment>
+</CaseStudyLayout>

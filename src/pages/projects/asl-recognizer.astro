@@ -1,0 +1,12 @@
+---
+import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+import { projects } from '../../data/projects';
+const project = projects[1]; const next = projects[2];
+---
+<CaseStudyLayout project={project} next={next}>
+  <Fragment slot="problem"><p>Gesture recognition has to respond to movement, not just a single still frame. This recognizer was shaped around that temporal requirement, with a lightweight representation designed for responsive predictions.</p></Fragment>
+  <Fragment slot="approach"><p>The real-time pipeline uses MediaPipe hand landmarks and TensorFlow. A deque-based buffer smooths predictions across frames to reduce jitter. Lightweight feature extractors and mixed-precision training were used during model development; the smoothing buffer is not a claim of a sequence-model architecture.</p></Fragment>
+  <Fragment slot="decisions"><p>Lighting and blur were treated as practical sources of error, and error analysis helped make those failure modes visible. The reported latency was under 50ms on a T4, while the dataset contained 87k images.</p></Fragment>
+  <Fragment slot="results"><p>The project reported 95% accuracy and a responsive measured runtime on the stated hardware. The result is a focused example of combining landmark features with short temporal context.</p></Fragment>
+  <Fragment slot="limits"><p>The 87k-image figure describes the dataset, not a held-out test-set size. The under-50ms result is specific to the reported T4 GPU setup, not a guarantee on other hardware. Mixed-precision training alone does not establish inference speed.</p></Fragment>
+</CaseStudyLayout>
