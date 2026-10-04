@@ -1,0 +1,8 @@
+---
+interface Props { achievement: { icon: string; title: string; source: string } }
+const { achievement } = Astro.props;
+---
+<article class="achievement-card reveal">
+  <span class="ach-icon" aria-hidden="true">{achievement.icon}</span>
+  <div><h3 class="ach-title">{achievement.title}</h3><p class="ach-source">{achievement.source}</p></div>
+</article>

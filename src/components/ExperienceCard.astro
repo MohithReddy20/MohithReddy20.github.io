@@ -1,0 +1,8 @@
+---
+interface Props { item: { date: string; organization: string; role: string; bullets: string[] } }
+const { item } = Astro.props;
+---
+<article class="exp-item reveal">
+  <div class="exp-meta"><p class="exp-date">{item.date}</p><p class="exp-org">{item.organization}</p></div>
+  <div><h3 class="exp-role">{item.role}</h3><ul class="exp-bullets">{item.bullets.map(bullet => <li>{bullet}</li>)}</ul></div>
+</article>

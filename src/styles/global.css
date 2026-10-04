@@ -1,0 +1,26 @@
+:root { --bg:#07090f; --bg2:#0d1018; --bg3:#131620; --amber:#E8921C; --amber-glow:rgba(232,146,28,.12); --text:#EDE8DF; --muted:#aaa49b; --faint:#2A2E3A; --border:rgba(255,255,255,.1); }
+*,*::before,*::after { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:6rem; }
+body { margin:0; background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.7; }
+img { max-width:100%; }
+a { color:inherit; }
+button { font:inherit; }
+:focus-visible { outline:2px solid var(--amber); outline-offset:4px; }
+::selection { background:var(--amber); color:var(--bg); }
+.container { width:min(100% - 10%, 1400px); margin-inline:auto; }
+.section { padding:7rem 0; }
+.section-compact { padding-top:2rem; }
+.section-header { display:flex; align-items:center; gap:1.5rem; margin-bottom:3.5rem; }
+.section-num, .section-line, .section-title { margin:0; }
+.section-num { font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--amber); letter-spacing:.1em; white-space:nowrap; }
+.section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2.2rem,4vw,3.4rem); font-weight:300; line-height:1.1; }
+.section-line { flex:1; height:1px; background:var(--border); }
+.skip-link { position:fixed; top:-100px; left:1rem; z-index:200; background:var(--amber); color:var(--bg); padding:.6rem 1rem; }
+.skip-link:focus { top:1rem; }
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.75rem 1.6rem; font:400 .75rem 'JetBrains Mono',monospace; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border:1px solid; border-radius:2px; transition:background .2s,color .2s,border-color .2s,transform .2s; }
+.btn-primary { color:var(--bg); border-color:var(--amber); background:var(--amber); }
+.btn-primary:hover { background:#f5a030; border-color:#f5a030; transform:translateY(-2px); }
+.btn-outline { color:var(--text); border-color:var(--faint); background:transparent; }
+.btn-outline:hover { color:var(--amber); border-color:var(--amber); transform:translateY(-2px); }
+@media(max-width:600px) { .container { width:min(100% - 2.5rem,1400px); } .section { padding:4.5rem 0; } .section-compact { padding-top:0; } .section-header { gap:.7rem; margin-bottom:2.2rem; } .section-title { font-size:clamp(2rem,8vw,2.8rem); } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition-duration:.01ms!important; animation-duration:.01ms!important; } }

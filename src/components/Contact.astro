@@ -1,0 +1,21 @@
+---
+import { profile } from '../data/profile';
+import SectionHeader from './SectionHeader.astro';
+---
+<section id="contact" class="section contact" aria-labelledby="contact-title">
+  <div class="container">
+    <SectionHeader number="07" title="Contact" id="contact-title" />
+    <div class="contact-inner reveal">
+      <p class="contact-headline">Let's build something<br /><em>worth building.</em></p>
+      <p class="contact-sub">I'm looking for Python developer, backend, or full-stack roles. Open to relocation. If you have an interesting problem, I'd like to hear about it.</p>
+      <div class="contact-links">
+        <a href={`mailto:${profile.email}`} class="contact-link">↗ {profile.email}</a>
+        <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" class="contact-link">↗ LinkedIn</a>
+        <a href={profile.github} target="_blank" rel="noopener noreferrer" class="contact-link">↗ GitHub</a>
+        <a href={profile.phoneHref} class="contact-link">↗ {profile.phone}</a>
+      </div>
+      <a href={profile.resume} download class="btn btn-primary">Download full resume</a>
+      <p class="resume-note">Resume PDF reflects an earlier version; current education details are shown above.</p>
+    </div>
+  </div>
+</section>

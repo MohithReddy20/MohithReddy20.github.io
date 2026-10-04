@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ExperienceCard from '../components/ExperienceCard.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import SkillGroup from '../components/SkillGroup.astro';
+import AchievementCard from '../components/AchievementCard.astro';
+import Contact from '../components/Contact.astro';
+import { profile } from '../data/profile';
+import { experience } from '../data/experience';
+import { capabilities } from '../data/capabilities';
+import { skills } from '../data/skills';
+import { achievements } from '../data/achievements';
+import { projects } from '../data/projects';
+const homepageProjects = Array.isArray(projects) ? projects : [];
+---
+<Layout>
+  <Hero />
+  <section id="projects" class="section" aria-labelledby="projects-title">
+    <div class="container">
+      <SectionHeader number="01" title="Projects" id="projects-title" />
+      <div class="projects-grid">{homepageProjects.map((project, index) => <ProjectCard project={project} index={index} />)}</div>
+    </div>
+  </section>
+
+  <section id="about" class="section" aria-labelledby="about-title">
+    <div class="container">
+      <SectionHeader number="02" title="About" id="about-title" />
+      <div class="about-grid">
+        <div class="about-photo-wrap reveal"><img src={profile.portrait} alt="Portrait of Mohith Reddy Yannam" width="435" height="616" loading="lazy" decoding="async" /></div>
+        <div class="about-text reveal">
+          <p>I'm a Computer Science graduate from <strong>{profile.institution}</strong>, where I completed my B.Tech (Hons) in May 2026. My work sits at the intersection of machine learning, backend engineering, and real-world deployment — I build systems that actually ship.</p>
+          <p>At <strong>DRDO's DRDL lab</strong> in Hyderabad, I engineered an air-gapped NLP pipeline to automate test case generation for 200+ defence SRS documents — on hardware with no internet access and no cloud dependencies.</p>
+          <p>I'm looking for <strong>Python developer, backend developer, or full-stack roles</strong> where I can bring this same approach to practical engineering.</p>
+        </div>
+        <dl class="about-detail-card reveal">
+          <div class="detail-row"><dt>Location</dt><dd>{profile.location}</dd></div>
+          <div class="detail-row"><dt>Degree</dt><dd>{profile.degree}</dd></div>
+          <div class="detail-row"><dt>Institution</dt><dd>{profile.institution}</dd></div>
+          <div class="detail-row"><dt>Graduated</dt><dd>{profile.graduation}</dd></div>
+          <div class="detail-row"><dt>CGPA</dt><dd class="accent">{profile.cgpa}</dd></div>
+          <div class="detail-row"><dt>Status</dt><dd class="accent">Open to work · Relocation OK</dd></div>
+          <div class="detail-row"><dt>Email</dt><dd><a href={`mailto:${profile.email}`}>{profile.email}</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="section section-compact" aria-labelledby="experience-title">
+    <div class="container">
+      <SectionHeader number="03" title="Experience" id="experience-title" />
+      <div class="experience-list">{experience.map(item => <ExperienceCard item={item} />)}</div>
+    </div>
+  </section>
+
+  <section id="capabilities" class="section" aria-labelledby="capabilities-title">
+    <div class="container">
+      <SectionHeader number="04" title="What I Build" id="capabilities-title" />
+      <div class="services-grid">{capabilities.map(capability => <ServiceCard capability={capability} />)}</div>
+      <p class="capability-note">Local-model applications are scoped to the available CPU, GPU, RAM/VRAM and operating system. Model size, quantization, context length, concurrency and latency requirements determine feasibility; inference and fine-tuning have different resource needs.</p>
+    </div>
+  </section>
+
+  <section id="skills" class="section" aria-labelledby="skills-title">
+    <div class="container">
+      <SectionHeader number="05" title="Skills" id="skills-title" />
+      <div class="skills-grid">{skills.map(group => <SkillGroup group={group} />)}</div>
+    </div>
+  </section>
+
+  <section id="achievements" class="section" aria-labelledby="achievements-title">
+    <div class="container">
+      <SectionHeader number="06" title="Achievements & Certifications" id="achievements-title" />
+      <div class="achievements-list">{achievements.map(achievement => <AchievementCard achievement={achievement} />)}</div>
+    </div>
+  </section>
+  <Contact />
+</Layout>

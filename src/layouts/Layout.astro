@@ -1,0 +1,50 @@
+---
+import '../styles/global.css';
+import '../styles/components.css';
+import '../styles/animations.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props { title?: string; description?: string }
+const { title = 'Mohith Reddy Yannam — Python Developer & ML Engineer', description = 'Mohith Reddy Yannam builds applied machine learning systems, offline-first NLP pipelines, and full-stack applications.' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#07090f" />
+    <title>{title}</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, 'https://mohithreddy20.github.io')} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <Navbar />
+    <main id="main-content"><slot /></main>
+    <Footer />
+    <script>
+      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const observer = new IntersectionObserver((entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          }
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(element => {
+          observer.observe(element);
+          element.classList.add('reveal-ready');
+        });
+      }
+    </script>
+  </body>
+</html>

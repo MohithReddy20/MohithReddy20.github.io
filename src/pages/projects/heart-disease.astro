@@ -1,0 +1,12 @@
+---
+import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+import { projects } from '../../data/projects';
+const project = projects[0]; const next = projects[1];
+---
+<CaseStudyLayout project={project} next={next}>
+  <Fragment slot="problem"><p>People need a clear way to explore a health-risk estimate without turning a web form into a clinical promise. This project focused on a simple, accessible experience around a machine-learning prediction.</p></Fragment>
+  <Fragment slot="approach"><p>A Flask application collects validated inputs and passes them to a Scikit-learn Random Forest model. The interface keeps the interaction direct, while account flows support email authentication and password reset through SMTP.</p></Fragment>
+  <Fragment slot="decisions"><p>The decision threshold was tuned toward high recall, reflecting the cost of overlooking a possible risk signal. Input validation provides a second layer of care at the boundary of the application, while the service is deployed on Render.</p></Fragment>
+  <Fragment slot="results"><p>The Random Forest classifier achieved 88% accuracy in project evaluation. It demonstrates a complete path from user input to an interpretable web experience, rather than presenting a model as an isolated notebook.</p></Fragment>
+  <Fragment slot="limits"><p>This project demonstrates an end-to-end ML application rather than a clinically validated diagnostic system. The 88% accuracy reflects the project’s evaluation; clinical validation is outside the scope of this implementation.</p></Fragment>
+</CaseStudyLayout>

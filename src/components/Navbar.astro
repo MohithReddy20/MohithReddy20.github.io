@@ -1,0 +1,46 @@
+---
+const links = [
+  ['Projects', '/#projects'], ['About', '/#about'], ['Experience', '/#experience'],
+  ['What I Build', '/#capabilities'], ['Skills', '/#skills'], ['Awards', '/#achievements'], ['Contact', '/#contact'],
+];
+---
+<header class="site-header">
+  <nav class="site-nav container" aria-label="Primary navigation">
+    <a class="nav-logo" href="/" aria-label="Mohith Reddy Yannam, home">MRY / Portfolio</a>
+    <button class="nav-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      {links.map(([label, url]) => <li><a href={url}>{label}</a></li>)}
+    </ul>
+  </nav>
+</header>
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
+  const menu = document.querySelector<HTMLElement>('#nav-links');
+  if (toggle && menu) {
+    toggle.closest('.site-header')?.classList.add('nav-enhanced');
+    const close = (restoreFocus = false) => {
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+      menu.classList.remove('is-open');
+      if (restoreFocus) toggle.focus();
+    };
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') !== 'true';
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      menu.classList.toggle('is-open', open);
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') close(true);
+    });
+    menu.addEventListener('click', (event) => {
+      if ((event.target as HTMLElement).closest('a')) close(true);
+    });
+    document.addEventListener('click', (event) => {
+      if (toggle.getAttribute('aria-expanded') === 'true' && !(event.target as HTMLElement).closest('.site-nav')) close();
+    });
+    window.addEventListener('resize', () => { if (window.innerWidth > 800) close(); });
+  }
+</script>

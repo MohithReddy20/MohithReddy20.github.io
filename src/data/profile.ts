@@ -1,0 +1,15 @@
+export const profile = {
+  name: 'Mohith Reddy Yannam',
+  email: 'yannammohithreddy@gmail.com',
+  phone: '+91 70751 24019',
+  phoneHref: 'tel:+917075124019',
+  github: 'https://github.com/MohithReddy20',
+  linkedin: 'https://linkedin.com/in/mohith-reddy-yannam',
+  resume: '/resume/MohithReddyYannam_Resume.pdf',
+  portrait: '/images/profile.webp',
+  location: 'Proddatur, Andhra Pradesh',
+  degree: 'B.Tech (Hons) CSE',
+  institution: 'CBIT Proddatur',
+  graduation: 'May 2026',
+  cgpa: '8.41 / 10.0',
+};

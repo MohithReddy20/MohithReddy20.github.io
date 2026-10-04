@@ -1,0 +1,11 @@
+---
+interface Props { group: { label: string; primary: string[]; items: string[] } }
+const { group } = Astro.props;
+---
+<div class="skill-group reveal">
+  <h3 class="skill-group-label">{group.label}</h3>
+  <div class="skill-pills">
+    {group.primary.map(skill => <span class="skill-pill primary">{skill}</span>)}
+    {group.items.map(skill => <span class="skill-pill">{skill}</span>)}
+  </div>
+</div>

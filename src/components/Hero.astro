@@ -1,0 +1,24 @@
+---
+import { profile } from '../data/profile';
+---
+<section id="hero" class="hero" aria-labelledby="hero-title">
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <div class="hero-number" aria-hidden="true">01</div>
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <p class="hero-tag">Python Developer &amp; ML Engineer</p>
+      <h1 id="hero-title" class="hero-name">Mohith <em>Reddy</em><br />Yannam</h1>
+      <p class="hero-sub">I build Python applications, ML systems, and offline NLP workflows—from model evaluation to usable interfaces. B.Tech CSE (Honors) graduate with research internship experience at DRDL, DRDO.</p>
+      <div class="hero-ctas">
+        <a href="/#projects" class="btn btn-primary">View projects</a>
+        <a href={profile.github} target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub ↗</a>
+        <a href={profile.resume} download class="btn btn-outline">Download CV</a>
+      </div>
+    </div>
+    <div class="hero-stats" aria-label="Highlights">
+      <div><strong class="stat-num">8.41</strong><span class="stat-label">CGPA</span></div>
+      <div><strong class="stat-num">60%</strong><span class="stat-label">Effort reduced (DRDO)</span></div>
+      <div><strong class="stat-num">5★</strong><span class="stat-label">HackerRank Python</span></div>
+    </div>
+  </div>
+</section>
